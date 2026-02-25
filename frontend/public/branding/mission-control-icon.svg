@@ -1,19 +1,11 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mission Control icon">
   <defs>
-    <linearGradient id="mc-icon-grad" x1="0" y1="0" x2="48" y2="48">
-      <stop offset="0%" stop-color="#050b1f" />
-      <stop offset="100%" stop-color="#111f44" />
+    <linearGradient id="mc-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#5eead4" />
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="12" fill="url(#mc-icon-grad)" />
-  <path
-    d="M16 18C16 15.7909 17.7909 14 20 14H26C28.2091 14 30 15.7909 30 18V32C30 32.5523 29.5523 33 29 33H20C17.7909 33 16 31.2091 16 29V18Z"
-    stroke="#5dd2ff"
-    stroke-width="2"
-    stroke-linecap="round"
-  />
-  <path
-    d="M24 14H34C36.2091 14 38 15.7909 38 18V32C38 34.2091 36.2091 36 34 36H24V20H32C32.5523 20 33 19.5523 33 19V19C33 18.4477 32.5523 18 32 18H24V14Z"
-    fill="#c1d8ff"
-  />
+  <rect width="120" height="120" rx="28" fill="url(#mc-gradient)" />
+  <circle cx="60" cy="40" r="14" fill="rgba(255,255,255,0.8)" />
+  <text x="50%" y="75%" text-anchor="middle" fill="#fff" font-family="'IBM Plex Sans', sans-serif" font-size="32" font-weight="600" letter-spacing="4">MC</text>
 </svg>
