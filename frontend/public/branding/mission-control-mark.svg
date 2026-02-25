@@ -1,0 +1,34 @@
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mc-grad" x1="0" y1="0" x2="72" y2="72">
+      <stop offset="0%" stop-color="#050b1f" />
+      <stop offset="100%" stop-color="#111f44" />
+    </linearGradient>
+    <linearGradient id="mc-accent" x1="0" y1="0" x2="72" y2="72">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#5dd2ff" />
+    </linearGradient>
+  </defs>
+  <rect width="72" height="72" rx="18" fill="url(#mc-grad)" />
+  <path
+    d="M24 28C24 25.7909 25.7909 24 28 24H34C36.2091 24 38 25.7909 38 28V44C38 44.5523 37.5523 45 37 45H28C25.7909 45 24 43.2091 24 41V28Z"
+    fill="url(#mc-accent)"
+    opacity="0.35"
+  />
+  <path
+    d="M32 24H44C46.2091 24 48 25.7909 48 28V44C48 46.2091 46.2091 48 44 48H32V30H40C40.5523 30 41 29.5523 41 29V29C41 28.4477 40.5523 28 40 28H32V24Z"
+    fill="white"
+  />
+  <text
+    x="36"
+    y="50"
+    text-anchor="middle"
+    font-family="Inter, system-ui, sans-serif"
+    font-size="18"
+    font-weight="700"
+    letter-spacing="0.05em"
+    fill="#c1d8ff"
+  >
+    MC
+  </text>
+</svg>

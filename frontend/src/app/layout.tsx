@@ -10,8 +10,19 @@ import { QueryProvider } from "@/components/providers/QueryProvider";
 import { GlobalLoader } from "@/components/ui/global-loader";
 
 export const metadata: Metadata = {
-  title: "OpenClaw Mission Control",
-  description: "A calm command center for every task.",
+  title: "Mission Control by Menez / OpenClaw Ops",
+  description: "A calm command center for every mission and agent.",
+  icons: {
+    icon: "/branding/mission-control-icon.svg",
+    shortcut: "/branding/mission-control-icon.svg",
+    apple: "/branding/mission-control-icon.svg",
+  },
+  openGraph: {
+    title: "Mission Control by Menez / OpenClaw Ops",
+    description: "A calm command center for every mission and agent.",
+    images: ["/branding/mission-control-mark.svg"],
+    type: "website",
+  },
 };
 
 const bodyFont = IBM_Plex_Sans({

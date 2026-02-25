@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -19,17 +20,28 @@ export function LandingShell({ children }: { children: ReactNode }) {
     <div className="landing-enterprise">
       <nav className="landing-nav" aria-label="Primary navigation">
         <div className="nav-container">
-          <Link href="/" className="logo-section" aria-label="OpenClaw home">
-            <div className="logo-icon" aria-hidden="true">
-              OC
+          <Link
+            href="/"
+            className="logo-section"
+            aria-label="Mission Control by Menez / OpenClaw Ops home"
+          >
+            <div className="logo-icon">
+              <Image
+                src="/branding/mission-control-mark.svg"
+                alt="Mission Control mark"
+                width={36}
+                height={36}
+                priority
+              />
             </div>
             <div className="logo-text">
-              <div className="logo-name">OpenClaw</div>
-              <div className="logo-tagline">Mission Control</div>
+              <div className="logo-name">Mission Control</div>
+              <div className="logo-tagline">by Menez / OpenClaw Ops</div>
             </div>
           </Link>
 
           <div className="nav-links">
+            <Link href="#main-board">Main Board</Link>
             <Link href="#capabilities">Capabilities</Link>
             <Link href="/boards">Boards</Link>
             <Link href="/activity">Activity</Link>
@@ -46,7 +58,7 @@ export function LandingShell({ children }: { children: ReactNode }) {
                     signUpForceRedirectUrl="/onboarding"
                   >
                     <button type="button" className="btn-secondary">
-                      Sign In
+                      Log In
                     </button>
                   </SignInButton>
                   <SignInButton
@@ -55,7 +67,7 @@ export function LandingShell({ children }: { children: ReactNode }) {
                     signUpForceRedirectUrl="/onboarding"
                   >
                     <button type="button" className="btn-primary">
-                      Start Free Trial
+                      Begin Mission
                     </button>
                   </SignInButton>
                 </>
@@ -65,7 +77,7 @@ export function LandingShell({ children }: { children: ReactNode }) {
                     Boards
                   </Link>
                   <Link href="/onboarding" className="btn-primary">
-                    Get started
+                    Start Mission
                   </Link>
                 </>
               )}
@@ -89,8 +101,8 @@ export function LandingShell({ children }: { children: ReactNode }) {
       <footer className="landing-footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <h3>OpenClaw</h3>
-            <p>A calm command center for boards, agents, and approvals.</p>
+            <h3>Mission Control</h3>
+            <p>By Menez / OpenClaw Ops — a calm command center for boards, agents, and approvals.</p>
             <div className="footer-tagline">Realtime Execution Visibility</div>
           </div>
 

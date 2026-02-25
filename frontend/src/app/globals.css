@@ -3,26 +3,39 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --bg: #f8fafc;
-  --surface: #ffffff;
-  --surface-muted: #f1f5f9;
-  --surface-strong: #e2e8f0;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --text-quiet: #94a3b8;
-  --accent: #2563eb;
-  --accent-strong: #1d4ed8;
-  --accent-soft: rgba(37, 99, 235, 0.12);
-  --success: #16a34a;
-  --warning: #d97706;
-  --danger: #dc2626;
-  --shadow-panel:
-    0 1px 3px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.08);
-  --shadow-card:
-    0 1px 2px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.06);
+  color-scheme: dark;
+  --mission-control-ink: #050710;
+  --mission-control-night: #0c1a30;
+  --mission-control-depth: #131f43;
+  --mission-control-sky: #8b5cf6;
+  --mission-control-pulse: #5eead4;
+  --mission-control-ember: #ffc966;
+  --bg: #050710;
+  --surface: #0b1120;
+  --surface-muted: #111627;
+  --surface-strong: #1b2236;
+  --border: #1d2339;
+  --border-strong: #2d3354;
+  --text: #f4f6ff;
+  --text-muted: #9ea7c7;
+  --text-quiet: #7a829b;
+  --accent: var(--mission-control-sky);
+  --accent-strong: #7c3aed;
+  --accent-soft: rgba(139, 92, 246, 0.18);
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --shadow-panel: 0 16px 40px rgba(5, 7, 15, 0.45);
+  --shadow-card: 0 10px 28px rgba(5, 7, 15, 0.4);
+  --primary-navy: var(--mission-control-ink);
+  --secondary-navy: var(--mission-control-depth);
+  --accent-teal: var(--mission-control-pulse);
+  --accent-gold: var(--mission-control-ember);
+  --neutral-100: #101628;
+  --neutral-200: #151d34;
+  --neutral-300: #1b2548;
+  --neutral-700: #9ea7c7;
+  --neutral-800: #7f89aa;
 }
 
 body {
@@ -133,25 +146,28 @@ body {
 
 /* Landing (Enterprise) */
 .landing-enterprise {
-  --primary-navy: #0a1628;
-  --secondary-navy: #1a2942;
-  --accent-gold: #d4af37;
-  --accent-teal: #2dd4bf;
-  --neutral-100: #f8fafb;
-  --neutral-200: #e5e9ed;
-  --neutral-300: #cbd2d9;
-  --neutral-700: #3e4c59;
-  --neutral-800: #1e293b;
-  --success: #10b981;
-  --warning: #f59e0b;
+  --primary-navy: var(--mission-control-ink);
+  --secondary-navy: var(--mission-control-depth);
+  --accent-gold: var(--mission-control-ember);
+  --accent-teal: var(--mission-control-pulse);
+  --neutral-100: #050710;
+  --neutral-200: #101628;
+  --neutral-300: #1c2441;
+  --neutral-700: #9ea7c7;
+  --neutral-800: #7a829b;
+  --success: #34d399;
+  --warning: #fbbf24;
 
   min-height: 100vh;
   font-family:
     var(--font-body),
     -apple-system,
     sans-serif;
-  background: var(--neutral-100);
-  color: var(--neutral-800);
+  background:
+    radial-gradient(circle at 22% 20%, rgba(139, 92, 246, 0.2), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(93, 210, 255, 0.12), transparent 35%),
+    var(--bg);
+  color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -194,9 +210,9 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--neutral-200);
+  background: rgba(5, 7, 15, 0.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 40;
   animation: landing-slide-down 0.6s ease-out;
 }
@@ -204,11 +220,11 @@ body {
 .landing-enterprise .nav-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .landing-enterprise .logo-section {
@@ -219,21 +235,20 @@ body {
 }
 
 .landing-enterprise .logo-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-navy),
-    var(--secondary-navy)
-  );
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 18px;
-  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.15);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 10px 30px rgba(5, 7, 15, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.landing-enterprise .logo-icon img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .landing-enterprise .logo-text {
@@ -245,35 +260,35 @@ body {
 .landing-enterprise .logo-name {
   font-weight: 600;
   font-size: 20px;
-  letter-spacing: -0.02em;
-  color: var(--primary-navy);
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .landing-enterprise .logo-tagline {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--neutral-700);
-  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .landing-enterprise .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .landing-enterprise .nav-links a {
-  color: var(--neutral-700);
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 .landing-enterprise .nav-links a:hover {
-  color: var(--primary-navy);
+  color: var(--accent);
 }
 
 .landing-enterprise .nav-cta {
@@ -283,55 +298,62 @@ body {
 }
 
 .landing-enterprise .btn-secondary {
-  padding: 0.625rem 1.25rem;
-  border: 1.5px solid var(--neutral-300);
-  background: white;
-  color: var(--neutral-800);
-  border-radius: 8px;
-  font-weight: 500;
+  padding: 0.55rem 1.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  font-weight: 600;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .landing-enterprise .btn-secondary:hover {
-  border-color: var(--primary-navy);
-  background: var(--neutral-100);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .landing-enterprise .btn-primary {
-  padding: 0.625rem 1.5rem;
-  background: var(--primary-navy);
-  color: white;
+  padding: 0.65rem 1.6rem;
+  background: var(--accent);
+  color: #fff;
   border: none;
-  border-radius: 8px;
-  font-weight: 500;
+  border-radius: 999px;
+  font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
 }
 
 .landing-enterprise .btn-primary:hover {
-  background: var(--secondary-navy);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(10, 22, 40, 0.2);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.45);
 }
 
 .landing-enterprise .hero {
-  margin-top: 80px;
-  padding: 6rem 2.5rem 4rem;
+  margin-top: 95px;
+  padding: 5rem 2rem 4rem;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  align-items: flex-start;
 }
 
 .landing-enterprise .hero-content {
   animation: landing-fade-in-up 0.8s ease-out 0.2s both;
+}
+
+.landing-enterprise .hero-visuals {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
+  animation: landing-fade-in-up 0.8s ease-out 0.3s both;
 }
 
 .landing-enterprise .hero-label {
@@ -339,31 +361,31 @@ body {
   padding: 0.5rem 1rem;
   background: linear-gradient(
     135deg,
-    rgba(10, 22, 40, 0.05),
-    rgba(45, 212, 191, 0.08)
+    rgba(139, 92, 246, 0.18),
+    rgba(93, 210, 255, 0.12)
   );
-  border: 1px solid rgba(45, 212, 191, 0.2);
-  border-radius: 50px;
-  font-size: 13px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 999px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-teal);
-  margin-bottom: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
 }
 
 .landing-enterprise .hero h1 {
   font-family: var(--font-display), serif;
-  font-size: 56px;
-  line-height: 1.15;
-  color: var(--primary-navy);
-  margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
 .landing-enterprise .hero-highlight {
-  background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold));
+  background: linear-gradient(135deg, var(--accent-teal), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -371,26 +393,27 @@ body {
 }
 
 .landing-enterprise .hero p {
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.7;
-  color: var(--neutral-700);
-  margin-bottom: 2.5rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
   font-weight: 400;
 }
 
 .landing-enterprise .hero-actions {
   display: flex;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
 .landing-enterprise .btn-large {
-  padding: 1rem 2rem;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 10px;
+  padding: 0.95rem 2rem;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -398,77 +421,76 @@ body {
 }
 
 .landing-enterprise .btn-large.primary {
-  background: var(--primary-navy);
-  color: white;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  color: #fff;
   border: none;
-  box-shadow: 0 4px 12px rgba(10, 22, 40, 0.2);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.45);
 }
 
 .landing-enterprise .btn-large.primary:hover {
-  background: var(--secondary-navy);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(10, 22, 40, 0.25);
+  box-shadow: 0 16px 35px rgba(139, 92, 246, 0.55);
 }
 
 .landing-enterprise .btn-large.secondary {
-  background: white;
-  color: var(--neutral-800);
-  border: 1.5px solid var(--neutral-300);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .landing-enterprise .btn-large.secondary:hover {
-  border-color: var(--primary-navy);
-  background: var(--neutral-100);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .landing-enterprise .hero-features {
-  display: flex;
-  gap: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--neutral-200);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .landing-enterprise .hero-feature {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
 }
 
 .landing-enterprise .feature-icon {
-  width: 20px;
-  height: 20px;
-  background: var(--accent-teal);
-  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, var(--accent-teal), var(--accent));
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 12px;
   flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(5, 7, 15, 0.4);
 }
 
 .landing-enterprise .hero-feature span {
   font-size: 14px;
   font-weight: 500;
-  color: var(--neutral-700);
+  color: var(--text-muted);
 }
 
 .landing-enterprise .command-surface {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.08);
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow-panel);
   overflow: hidden;
   animation: landing-fade-in-up 0.8s ease-out 0.4s both;
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--border);
 }
 
 .landing-enterprise .surface-header {
   padding: 1.5rem 2rem;
-  background: linear-gradient(
-    135deg,
-    var(--primary-navy),
-    var(--secondary-navy)
-  );
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.95), rgba(93, 210, 255, 0.9));
   color: white;
   display: flex;
   justify-content: space-between;
@@ -501,33 +523,33 @@ body {
 
 .landing-enterprise .surface-subtitle {
   padding: 1.25rem 2rem;
-  background: var(--neutral-100);
-  border-bottom: 1px solid var(--neutral-200);
+  background: var(--surface-muted);
+  border-bottom: 1px solid var(--border);
 }
 
 .landing-enterprise .surface-subtitle h3 {
   font-size: 16px;
   font-weight: 600;
-  color: var(--primary-navy);
+  color: var(--text);
   margin-bottom: 0.25rem;
 }
 
 .landing-enterprise .surface-subtitle p {
   font-size: 13px;
-  color: var(--neutral-700);
+  color: var(--text-muted);
 }
 
 .landing-enterprise .metrics-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .landing-enterprise .metric {
   padding: 1.75rem 2rem;
   text-align: center;
-  border-right: 1px solid var(--neutral-200);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .landing-enterprise .metric:last-child {
@@ -537,7 +559,7 @@ body {
 .landing-enterprise .metric-value {
   font-size: 36px;
   font-weight: 300;
-  color: var(--primary-navy);
+  color: var(--text);
   letter-spacing: -0.02em;
   margin-bottom: 0.25rem;
 }
@@ -546,7 +568,7 @@ body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--neutral-700);
+  color: var(--text-muted);
   font-weight: 600;
 }
 
@@ -560,8 +582,8 @@ body {
 .landing-enterprise .content-section h4 {
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--neutral-700);
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -571,7 +593,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .landing-enterprise .status-item:last-child {
@@ -581,7 +603,7 @@ body {
 .landing-enterprise .status-icon {
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -590,22 +612,22 @@ body {
 }
 
 .landing-enterprise .status-icon.progress {
-  background: rgba(45, 212, 191, 0.1);
+  background: rgba(93, 210, 255, 0.18);
   color: var(--accent-teal);
 }
 
 .landing-enterprise .status-item-title {
   font-size: 14px;
   font-weight: 500;
-  color: var(--primary-navy);
+  color: var(--text);
 }
 
 .landing-enterprise .approval-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.875rem 0;
-  border-bottom: 1px solid var(--neutral-200);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   gap: 0.75rem;
 }
 
@@ -615,27 +637,17 @@ body {
 
 .landing-enterprise .approval-title {
   font-size: 14px;
-  color: var(--neutral-800);
+  color: var(--text);
   font-weight: 500;
 }
 
-.landing-enterprise .approval-badge {
-  padding: 0.35rem 0.75rem;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
 .landing-enterprise .approval-badge.ready {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(52, 211, 153, 0.2);
   color: var(--success);
 }
 
 .landing-enterprise .approval-badge.waiting {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(251, 191, 36, 0.18);
   color: var(--warning);
 }
 
@@ -644,7 +656,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   gap: 0.75rem;
 }
 
@@ -654,18 +666,224 @@ body {
 
 .landing-enterprise .signal-text {
   font-size: 13px;
-  color: var(--neutral-700);
+  color: var(--text-muted);
 }
 
 .landing-enterprise .signal-time {
   font-size: 12px;
-  color: var(--neutral-700);
-  font-weight: 500;
+  color: var(--text);
+  font-weight: 600;
   white-space: nowrap;
 }
 
+.landing-enterprise .main-board-preview {
+  margin: 0 auto 3rem;
+  max-width: 1200px;
+  border-radius: 20px;
+  border: 1px solid var(--neutral-200);
+  background: linear-gradient(
+      180deg,
+      rgba(29, 78, 216, 0.05),
+      rgba(14, 165, 233, 0.05)
+    ),
+    var(--surface);
+  box-shadow: var(--shadow-panel);
+  padding: 2rem;
+}
+
+.landing-enterprise .main-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.landing-enterprise .main-board-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--mission-control-sky);
+  font-weight: 600;
+}
+
+.landing-enterprise .main-board-header h3 {
+  font-size: 28px;
+  color: var(--primary-navy);
+  margin-bottom: 0.25rem;
+}
+
+.landing-enterprise .main-board-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.landing-enterprise .main-board-header-actions {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 13px;
+}
+
+.landing-enterprise .main-board-pill {
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.landing-enterprise .main-board-pill.muted {
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--neutral-700);
+}
+
+.landing-enterprise .main-board-body {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem;
+}
+
+.landing-enterprise .lane-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.landing-enterprise .lane-column {
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--neutral-200);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.landing-enterprise .lane-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--neutral-700);
+  font-weight: 700;
+}
+
+.landing-enterprise .lane-count {
+  font-size: 13px;
+  color: var(--neutral-800);
+}
+
+.landing-enterprise .lane-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.landing-enterprise .lane-card {
+  background: var(--surface-muted);
+  border-radius: 12px;
+  padding: 0.85rem;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+}
+
+.landing-enterprise .lane-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+
+.landing-enterprise .lane-card-detail {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.landing-enterprise .lane-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--neutral-700);
+}
+
+.landing-enterprise .lane-card-owner {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+.landing-enterprise .lane-card-status {
+  font-weight: 600;
+  color: var(--mission-control-sky);
+}
+
+.landing-enterprise .board-panels {
+  display: grid;
+  gap: 1rem;
+}
+
+.landing-enterprise .board-panel {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 1rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-card);
+}
+
+.landing-enterprise .board-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.landing-enterprise .board-panel li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.landing-enterprise .board-panel li time {
+  font-size: 12px;
+  color: var(--neutral-600);
+}
+
+.landing-enterprise .board-panel .panel-title {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--neutral-700);
+  margin-bottom: 1rem;
+}
+
+.landing-enterprise .approval-pill {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.landing-enterprise .approval-pill.ready {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--mission-control-depth);
+}
+
+.landing-enterprise .approval-pill.waiting {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
 .landing-enterprise .features-section {
-  padding: 6rem 2.5rem;
+  padding: 5rem 2rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -676,18 +894,19 @@ body {
 
 .landing-enterprise .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
   margin-top: 3rem;
 }
 
 .landing-enterprise .feature-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--neutral-200);
-  transition: all 0.3s ease;
+  background: var(--surface);
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   animation: landing-fade-in-up 0.6s ease-out both;
+  box-shadow: 0 12px 30px rgba(5, 7, 15, 0.35);
 }
 
 .landing-enterprise .feature-card:nth-child(1) {
@@ -707,51 +926,43 @@ body {
 }
 
 .landing-enterprise .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(10, 22, 40, 0.12);
-  border-color: var(--accent-teal);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(5, 7, 15, 0.45);
+  border-color: var(--accent);
 }
 
 .landing-enterprise .feature-number {
   width: 48px;
   height: 48px;
-  background: linear-gradient(
-    135deg,
-    rgba(10, 22, 40, 0.05),
-    rgba(45, 212, 191, 0.08)
-  );
-  border: 1px solid var(--neutral-200);
-  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(93, 210, 255, 0.13));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   margin-bottom: 1.5rem;
-  color: var(--primary-navy);
+  color: var(--accent);
   font-weight: 300;
 }
 
 .landing-enterprise .feature-card h3 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--primary-navy);
+  color: var(--text);
   margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
 }
 
 .landing-enterprise .feature-card p {
   font-size: 14px;
-  line-height: 1.6;
-  color: var(--neutral-700);
+  line-height: 1.7;
+  color: var(--text-muted);
 }
 
 .landing-enterprise .cta-section {
   padding: 5rem 2.5rem;
-  background: linear-gradient(
-    135deg,
-    var(--primary-navy),
-    var(--secondary-navy)
-  );
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.95), rgba(93, 210, 255, 0.85));
   text-align: center;
 }
 
@@ -783,30 +994,30 @@ body {
 }
 
 .landing-enterprise .btn-large.white {
-  background: white;
-  color: var(--primary-navy);
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .landing-enterprise .btn-large.white:hover {
-  background: var(--neutral-100);
+  background: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
 .landing-enterprise .btn-large.outline {
   background: transparent;
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .landing-enterprise .btn-large.outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 .landing-enterprise .landing-footer {
-  background: var(--neutral-100);
-  border-top: 1px solid var(--neutral-200);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
   padding: 3rem 2.5rem 2rem;
 }
 
@@ -822,13 +1033,13 @@ body {
 .landing-enterprise .footer-brand h3 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--primary-navy);
+  color: var(--text);
   margin-bottom: 0.75rem;
 }
 
 .landing-enterprise .footer-brand p {
   font-size: 14px;
-  color: var(--neutral-700);
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -837,7 +1048,7 @@ body {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--neutral-700);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -845,7 +1056,7 @@ body {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--neutral-700);
+  color: var(--text-muted);
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -858,7 +1069,7 @@ body {
 
 .landing-enterprise .footer-links a,
 .landing-enterprise .footer-links button {
-  color: var(--neutral-700);
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
@@ -872,14 +1083,14 @@ body {
 
 .landing-enterprise .footer-links a:hover,
 .landing-enterprise .footer-links button:hover {
-  color: var(--primary-navy);
+  color: var(--accent);
 }
 
 .landing-enterprise .footer-bottom {
   max-width: 1400px;
   margin: 0 auto;
   padding-top: 2rem;
-  border-top: 1px solid var(--neutral-200);
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -889,7 +1100,7 @@ body {
 
 .landing-enterprise .footer-copyright {
   font-size: 13px;
-  color: var(--neutral-700);
+  color: var(--text-muted);
 }
 
 .landing-enterprise .footer-bottom-links {
@@ -900,13 +1111,13 @@ body {
 
 .landing-enterprise .footer-bottom-links a {
   font-size: 13px;
-  color: var(--neutral-700);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .landing-enterprise .footer-bottom-links a:hover {
-  color: var(--primary-navy);
+  color: var(--accent);
 }
 
 @media (max-width: 1024px) {
@@ -929,6 +1140,14 @@ body {
 
   .landing-enterprise .footer-content {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .landing-enterprise .main-board-body {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-enterprise .lane-columns {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
 
