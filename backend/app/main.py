@@ -472,6 +472,33 @@ app.add_middleware(
     referrer_policy=settings.security_header_referrer_policy,
     permissions_policy=settings.security_header_permissions_policy,
 )
+
+
+class StripPathPrefixMiddleware:
+    """Strip /api for health and openapi so the proxy can forward /api/* to this app.
+
+    Proxy sends /api/healthz but the app serves /healthz. Proxy sends /api/v1/* as-is
+    (app serves /api/v1/*). We only strip for /api/healthz, /api/health, /api/readyz,
+    /api/openapi.json.
+    """
+
+    STRIP_PATHS = frozenset({"/api/healthz", "/api/health", "/api/readyz", "/api/openapi.json"})
+
+    def __init__(self, app: Any) -> None:
+        self.app = app
+
+    async def __call__(self, scope: dict[str, Any], receive: Any, send: Any) -> None:
+        if scope.get("type") != "http":
+            await self.app(scope, receive, send)
+            return
+        path = (scope.get("path") or "").split("?")[0]
+        if path in self.STRIP_PATHS:
+            scope = dict(scope)
+            scope["path"] = path.removeprefix("/api")
+        await self.app(scope, receive, send)
+
+
+app.add_middleware(StripPathPrefixMiddleware)
 install_error_handling(app)
 
 
